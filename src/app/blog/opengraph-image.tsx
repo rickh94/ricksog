@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { Wrapper } from "../_components/wrapper";
+import { Wrapper } from "~/app/_components/wrapper";
 import { Logo } from "./logo";
 import { cardo } from "./fonts";
 
