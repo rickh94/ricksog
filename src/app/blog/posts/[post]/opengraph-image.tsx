@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { Wrapper } from "~/app/_components/wrapper";
-import { Logo } from "../logo";
-import { cardo } from "../fonts";
+import { Logo } from "../../logo";
+import { cardo } from "../../fonts";
 import { calculateFontSize, maybeTruncate } from "~/app/util";
 
 // Route segment config
