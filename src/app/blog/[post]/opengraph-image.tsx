@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { Wrapper } from "~/app/_components/wrapper";
 import { Logo } from "../logo";
 import { cardo } from "../fonts";
+import { calculateFontSize, maybeTruncate } from "~/app/util";
 
 // Route segment config
 export const runtime = "edge";
@@ -15,19 +16,24 @@ export const size = {
 
 export const contentType = "image/png";
 
+// TODO: add logic for picking smaller font sizes and truncating text
+
 export default async function Image({ params }: { params: { post: string } }) {
+  let titleText = `Post: ${params.post}`;
+  const fontSize = calculateFontSize(titleText);
+  titleText = maybeTruncate(titleText);
   return new ImageResponse(
     (
       <Wrapper background="linear-gradient(135deg, #f5d0fe 0%, #ffffff 100%)">
         <Logo />
         <div
           style={{
-            fontSize: 96,
+            fontSize,
             color: "#3f3f46",
             display: "flex",
           }}
         >
-          Post: {params.post}
+          {titleText}
         </div>
         <div
           style={{

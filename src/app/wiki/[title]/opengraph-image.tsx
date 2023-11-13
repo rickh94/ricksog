@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { Wrapper } from "~/app/_components/wrapper";
 import { playfairRegular, playfairBold } from "../fonts";
 import { Logo } from "../logo";
+import { calculateFontSize, maybeTruncate } from "~/app/util";
 
 // Route segment config
 export const runtime = "edge";
@@ -16,17 +17,19 @@ export const size = {
 export const contentType = "image/png";
 // Image generation
 export default async function Image({ params }: { params: { title: string } }) {
+  const titleFontSize = calculateFontSize(params.title);
+  const titleText = maybeTruncate(params.title);
   return new ImageResponse(
     (
       <Wrapper background="linear-gradient(135deg, #ecfeff 0%, #ffffff 100%)">
         <Logo />
         <div
           style={{
-            fontSize: 96,
+            fontSize: titleFontSize,
             color: "#1e293b",
           }}
         >
-          {params.title}
+          {titleText}
         </div>
         <div
           style={{

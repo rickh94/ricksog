@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 import { Wrapper } from "~/app/_components/wrapper";
-import { playfairRegular, playfairBold } from "~/app/wiki/fonts";
-import { Logo } from "~/app/wiki/logo";
+import { sportsWorld, sevenSegment, robotoRegular } from "./fonts";
 
 // Route segment config
 export const runtime = "edge";
@@ -15,39 +14,49 @@ export const size = {
 
 export const contentType = "image/png";
 // Image generation
-export default async function Image({ params }: { params: { title: string } }) {
+export default async function Image() {
   return new ImageResponse(
     (
-      <Wrapper background="linear-gradient(135deg, #ecfeff 0%, #ffffff 100%)">
-        <Logo />
+      <Wrapper background="#1d4ed8">
         <div
           style={{
-            fontSize: 96,
-            color: "#1e293b",
+            fontSize: 288,
+            color: "#ffffff",
+            fontFamily: "Seven Segment",
+            paddingBottom: 64,
+            letterSpacing: -12,
+            marginTop: -32,
+            marginLeft: -96,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
           }}
         >
-          {params.title}
+          <div>11</div>
+          <div>-</div>
+          <div>9</div>
         </div>
         <div
           style={{
-            fontSize: 32,
-            paddingBlock: 32,
-            color: "#64748b",
-            marginBottom: -16,
+            fontSize: 48,
+            color: "#ffffff",
+            fontFamily: "Sports World",
           }}
         >
-          Violin Teaching Wiki
+          Table Tennis Scoreboard
         </div>
         <div
           style={{
-            color: "#0ea5e9",
+            color: "#ffffff",
             textAlign: "center",
             fontSize: 24,
             paddingTop: 48,
             marginBottom: -64,
+            fontFamily: "Roboto",
           }}
         >
-          wiki.rickhenry.studio
+          tabletennisscoreboard.com
         </div>
       </Wrapper>
     ),
@@ -55,16 +64,20 @@ export default async function Image({ params }: { params: { title: string } }) {
       ...size,
       fonts: [
         {
-          name: "Playfair",
-          data: await playfairRegular,
+          name: "Sports World",
+          data: await sportsWorld,
           style: "normal",
           weight: 400,
         },
         {
-          name: "Playfair",
-          data: await playfairBold,
+          name: "Seven Segment",
+          data: await sevenSegment,
           style: "normal",
-          weight: 700,
+        },
+        {
+          name: "Roboto",
+          data: await robotoRegular,
+          style: "normal",
         },
       ],
     },

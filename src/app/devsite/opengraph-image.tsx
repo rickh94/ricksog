@@ -1,44 +1,35 @@
 import { ImageResponse } from "next/og";
 import { Wrapper } from "../_components/wrapper";
 import { Logo } from "./logo";
-import { playfairBold, playfairRegular } from "./fonts";
+import { montserrat } from "./fonts";
 
 // Route segment config
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "Violin Teaching Wiki";
+export const alt = "Rick Henry Development";
 export const size = {
   width: 1200,
   height: 630,
 };
 
 export const contentType = "image/png";
-// Image generation
-// Font
+
 export default async function Image() {
   return new ImageResponse(
     (
-      <Wrapper background="linear-gradient(135deg, #ecfeff 0%, #ffffff 100%)">
+      <Wrapper background="linear-gradient(135deg, #3b82f6 0%, #bfdbfe 100%)">
         <Logo />
         <div
           style={{
-            fontSize: 96,
-            color: "#1e293b",
-          }}
-        >
-          Violin Teaching Wiki
-        </div>
-        <div
-          style={{
-            color: "#0ea5e9",
+            color: "#1e3a8a",
             textAlign: "center",
             fontSize: 24,
             paddingTop: 32,
             marginBottom: -48,
           }}
         >
-          wiki.rickhenry.studio
+          rickhenry.dev
         </div>
       </Wrapper>
     ),
@@ -46,16 +37,10 @@ export default async function Image() {
       ...size,
       fonts: [
         {
-          name: "Playfair",
-          data: await playfairRegular,
+          name: "Montserrat",
+          data: await montserrat,
           style: "normal",
-          weight: 400,
-        },
-        {
-          name: "Playfair",
-          data: await playfairBold,
-          style: "normal",
-          weight: 700,
+          weight: 500,
         },
       ],
     },
