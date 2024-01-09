@@ -1,13 +1,13 @@
 import { ImageResponse } from "next/og";
 import { Wrapper } from "~/app/_components/wrapper";
-import { workSansSemibold } from "~/app/fingereliminator/fonts";
-import { Logo } from "~/app/fingereliminator/logo";
+import { libreBaskervilleBold } from "~/app/fingerpatterns/fonts";
+import { Logo } from "~/app/fingerpatterns/logo";
 
 // Route segment config
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "Violin Finger Eliminator";
+export const alt = "Violin Fingering";
 export const size = {
   width: 1200,
   height: 630,
@@ -18,28 +18,29 @@ export const contentType = "image/png";
 export default async function Image() {
   return new ImageResponse(
     (
-      <Wrapper background="linear-gradient(135deg, #ca8b46 0%, #facc15 100%)">
+      <Wrapper background="linear-gradient(135deg, #f5d0fe 0%, #fdf4ff 100%)">
         <Logo />
         <div
           style={{
-            fontSize: 92,
-            paddingBlock: 32,
+            fontSize: 64,
+            marginTop: 32,
+            paddingBlock: 48,
             color: "#000000",
             marginBottom: -16,
           }}
         >
-          Violin Finger Eliminator
+          Violin Finger Patterns
         </div>
         <div
           style={{
             color: "#334155",
             textAlign: "center",
-            fontSize: 24,
+            fontSize: 18,
             paddingTop: 32,
             marginBottom: -64,
           }}
         >
-          finger-elminator.rickhenry.studio
+          violinfingering.com
         </div>
       </Wrapper>
     ),
@@ -47,10 +48,10 @@ export default async function Image() {
       ...size,
       fonts: [
         {
-          name: "Work Sans",
-          data: await workSansSemibold,
+          name: "Libre Baskervilled",
+          data: await libreBaskervilleBold,
           style: "normal",
-          weight: 500,
+          weight: 700,
         },
       ],
     },
