@@ -28,7 +28,7 @@ export default async function Image() {
             marginBottom: -16,
           }}
         >
-          Practice Better
+          Go Practice
         </div>
         <div
           style={{
