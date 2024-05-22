@@ -39,7 +39,7 @@ export default async function Image() {
             marginBottom: -64,
           }}
         >
-          practice.rickhenry.studio
+          musicpracticing.com
         </div>
       </Wrapper>
     ),
